@@ -1,77 +1,89 @@
+
 //describe the class ShoppingListItem
-describe("ShoppingListItem", function(){
-  it("should be a function", function(){
+ describe('ShoppingListItem', function() {
+  var sli = null;
+  beforeEach(function() {
+    sli = new ShoppingListItem('Pizza', 'Pizza is in the oven, all is right with the world');
+  });
+  it('should be a class', function() {
     expect(ShoppingListItem).to.be.a('function');
   });
-  it("should have a property called 'name'", function(){
-    expect(ShoppingListItem).to.have.a('property');
+  describe('Instance Properties', function() {
+    it('should have a property called \'name\'', function() {
+        expect(sli).to.have.a.property('name');
+        expect(sli.name).to.be.equal('Pizza');
+      });
+    it('should have a property called \'description\'', function() {
+        expect(sli).to.have.a.property('description');
+      });
+    it('should have a property called \'is_done\'', function() {
+        expect(sli.is_done).to.be.false;
+      });
   });
-  it("should have a property called 'description'", function(){
-    expect(ShoppingListItem).to.have.a('property');
-  });
-  it("should have a property called 'is_done'", function(){
-    expect(ShoppingListItem).to.have.a('property');
-  });
-  it("Should have a constructor method that accepts 2 arguments", function(){
-    expect(ShoppingListItem).to.have.a("constructor");
-  });
-  describe("Check", function(){
-    it("Should have a method called 'check'", function(){
-      expect(check).to.set.is_done.to("true");
+  describe('Instance Methods', function() {
+    describe('Check', function() {
+      it('Should have a method called \'check\'', function() {
+        expect(sli).to.have.a.property('check');
+      });
+      it('Should set the value of is_done to false', function() {
+        expect(sli.uncheck()).to.equal.false;
+      });
     });
+    describe('Uncheck', function() {
+      it('Should have a method called \'uncheck\'', function() {
+        expect(sli).to.have.a.property('uncheck');
+      });
+      it('Should set the value of is_done to false', function() {
+          expect(sli.uncheck()).to.equal.false;
+        });
     });
-  describe("Uncheck", function(){
-    it("Should have a method called 'check'", function(){
-      expect(uncheck).to.set.is_done.to("false");
-    });
-  });
-  describe("Render", function(){
-    it("Should have a method called 'render'", function(){
-      expect(render).to.call.a("function");
-    });
-    it("Should return a string", function(){
-      expect(render).to.return.a("string");
+    describe('Render', function() {
+      it('Should have a method called \'render\'', function() {
+        expect(sli.render).to.be.a('function');
+      });
+      it('Should return a string', function() {
+        expect(sli.render()).to.be.a('string');
+      });
     });
   });
 });
 
-
 // describe the class ShoppingList
-describe("ShoppingList", function(){
-  it("should be a function", function(){
+describe('ShoppingList', function() {
+  var list = null;
+  beforeEach(function() {
+    list = new ShoppingList('array');
+  });
+  it('should be a class', function() {
     expect(ShoppingList).to.be.a('function');
   });
-   it("should have a property named 'items'", function(){
-    expect(ShoppingList).to.have.the.property('items');
+  it('should have a property named \'items\'', function() {
+    expect(list).to.have.a.property('items');
   });
-  it("should have a constructor that initializes items as an empty Array", function(){
-    expect(ShoppingList).to.have.a('constructor');
-  });
-  it("should have a method named 'addItem' that accepts a single ShoppingListItem argument", function(){
-    expect(ShoppingList).to.have.a("method");
-  });
-  describe("addItem", function(){
-    it("should invoke the 'addItem' method", function(){
-      expect(addItem).to.envoke.a('function');
-        });
-    it("should return an array", function(){
-      expect(addItem).to.return.an('array');
+  describe('Instance Properties', function() {
+    describe('addItem', function() {
+      it('should have a method named \'addItem\' that accepts a single ShoppingListItem argument', function() {
+        expect(list.addItem).to.be.a('function');
+      });
+      it('should return an array', function() {
+        expect(list.addItem()).to.be.an('array');
+      });
     });
-  });
-  describe("removeItem", function(){
-    it("should accept a single argument", function(){
-      expect(removeItem).to.return.a("function");
+    describe('removeItem', function() {
+      it('should accept a single argument', function() {
+        expect(list.removeItem()).to.return.a('function');
+      });
+      it('should remove the last item in the \'item\' array', function() {
+        expect(list.removeItem()).to.remove.an.object.from.an('array');
+      });
     });
-    it("should remove the last item in the 'item' array", function(){
-      expect(removeItem).to.remove.an.object.from.an('array');
-    });
-  });
-  describe("Render", function(){
-    it("Should have a method called 'render'", function(){
-      expect("render").to.call.a("function");
-    });
-    it("should return a string", function(){
-      expect("render").to.return.a("string");
+    describe('Render', function() {
+      it('Should have a method called \'render\'', function() {
+        expect(list.render).to.be.a('function');
+      });
+      it('should return a string', function() {
+        expect(list.render()).to.be.a('string');
+      });
     });
   });
 });
