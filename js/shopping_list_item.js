@@ -19,4 +19,3 @@ function ShoppingListItem(name, description, is_done) {
     return some_html_output;
   };
 }
-module.exports = ShoppingListItem;

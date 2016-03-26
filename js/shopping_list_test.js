@@ -53,6 +53,7 @@ describe('ShoppingList', function() {
   var list = null;
   beforeEach(function() {
     list = new ShoppingList('array');
+    var sli = new ShoppingListItem('Pizza', 'Pizza is in the oven, all is right with the world');
   });
   it('should be a class', function() {
     expect(ShoppingList).to.be.a('function');
@@ -68,13 +69,16 @@ describe('ShoppingList', function() {
       it('should return an array', function() {
         expect(list.addItem()).to.be.an('array');
       });
+      it('Should throw an error when anything that is not a ShoppingListItem is passed through', function() {
+        expect( list.addItem.bind(list, '')).to.not.throw(Error);
+      });
     });
     describe('removeItem', function() {
       it('should accept a single argument', function() {
-        expect(list.removeItem()).to.return.a('function');
+        expect(list.removeItem).to.be.a('function');
       });
       it('should remove the last item in the \'item\' array', function() {
-        expect(list.removeItem()).to.remove.an.object.from.an('array');
+        expect(list.removeItem()).to.be.an('array');
       });
     });
     describe('Render', function() {
