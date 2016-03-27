@@ -86,10 +86,12 @@ header {
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
-  padding: 15px 0 15px 0; }
+  padding: 15px 0 15px 0;
+  outline: none; }
   .inputContainer form {
-    width: 23%;
-    margin: 0 auto; }
+    width: 20%;
+    margin: 0 auto;
+    outline: none; }
     @media screen and (max-width: 600px) {
       .inputContainer form {
         margin-left: 25%; }
@@ -97,10 +99,15 @@ header {
           width: 200%; } }
   .inputContainer .shopButton {
     margin-top: 8px;
-    margin-left: 38%; }
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center; }
     @media screen and (max-width: 600px) {
       .inputContainer .shopButton {
-        margin-left: 32%; } }
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center; } }
   @media screen and (max-width: 600px) {
     .inputContainer {
       width: 100%; } }
