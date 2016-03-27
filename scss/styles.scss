@@ -1,0 +1,192 @@
+@import "partials/reset";
+
+// Variables
+$primarycolor: #4e4e4e;
+$headerbgcolor: #ffffff;
+$textcolor: #ffffff;
+$pointercolor: #77B6FF;
+
+//Mixins
+$breakpoints:(
+  'medium': 600px,
+  'large': 1000px
+);
+
+// Styles
+body{
+  background-color: #252427;
+  background-image: url('http://i.imgur.com/n31zhFw.jpg');
+  background-size: cover;
+  height: 1000px;
+  -webkit-background-size: cover;
+  font-family: 'Roboto', san-serif;
+  font-weight: 100;
+  background-repeat: no-repeat;
+  color: $textcolor;
+
+  a {
+    text-decoration: none;
+    color: $primarycolor;
+    transition: color 0.6s ease;
+  }
+
+  a:hover{
+    text-decoration: none;
+    color: #8F9491;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+  text-align: left;
+  }
+
+}
+
+//Header
+header{
+  padding: 30px;
+  background-color: $headerbgcolor;
+  box-shadow: 2px 2px 1px rgba(0,0,0, 0.1);
+    @media screen and (max-width:600px){
+      padding: 10px;
+    }
+
+  h1{
+    text-align: center;
+    font-size: 72px;
+    color: $primarycolor;
+      /* Medium Sizes */
+      @media screen and (max-width:600px){
+          font-size: 40px;
+      }
+  }
+}
+
+//Add Item Container
+.inputContainer{
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255, 0.4);
+  border-radius: 10px;
+  padding: 15px 0 15px 0;
+
+  form{
+    width: 23%;
+    margin: 0 auto;
+      @media screen and (max-width:600px){
+        margin-left: 25%;
+        input[type="text"] {
+          width: 200%;
+        }
+    }
+  }
+  .shopButton{
+    margin-top: 8px;
+    margin-left: 38%;
+    @media screen and (max-width:600px){
+      margin-left: 32%;
+    }
+  }
+    @media screen and (max-width:600px){
+      width: 100%;
+    }
+
+  button {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 5px;
+  font-family: roboto;
+  color: #ffffff;
+  font-size: 12px;
+  background: #77B6FF;
+  padding: 8px 11px 8px 11px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  background: #8cc2ff;
+  text-decoration: none;
+  cursor: pointer;
+}
+}
+
+// Moving Pointe
+.pointer{
+  margin-left: 130px;
+  display: flex;
+  width: 80px;
+  transition:3s;
+  position:absolute;
+  animation: bounce 3s linear infinite alternate;
+    //Hide Pointer on small screens
+    @media screen and (max-width:700px){
+      display: none;
+    }
+
+  .triangle {
+    height: 0;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid $pointercolor;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+  }
+  .box{
+    width: 60px;
+    height: 20px;
+    background-color: $pointercolor;
+    font-size: 11px;
+    top: 4px;
+    box-shadow: 2px 2px 1px rgba(0,0,0, 0.1);
+  }
+  p {
+    left: 4px;
+    top: 5px;
+    position: relative;
+    color: $textcolor;
+  }
+  @keyframes bounce {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    50% {
+      transform: translate(3px, 0);
+    }
+
+    100% {
+      transform: translate(-3px, 0);
+    }
+  }
+}
+//Item Container
+.listContainer{
+  transform: translateY(35%);
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255, 0.4);
+  border-radius: 10px;
+  padding: 15px 0 15px 0;
+
+  .title{
+
+    width: 85%;
+    margin-left: 15px;
+    text-align: left;
+    border-bottom: 1px solid white;
+  }
+
+  h1{
+    padding: 0 0 0 5px;
+    font-size: 24px;
+    font-weight: 300;
+    @media screen and (max-width:600px){
+      font-size: 16px;
+    }
+  }
+    @media screen and (max-width:600px){
+      width: 100%;
+    }
+};

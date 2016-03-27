@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header>
+    <h1><a href="localhost:3000">My Shopping List</a></h1>
+</header>
+<br>
+<div class="inputContainer">
+    <div id="content"></div>
+    <form>
+        Name:
+        <br>
+        <div class="pointer">
+            <div class="triangle"></div>
+            <div class="box">
+                <p>Type Here!</p>
+            </div>
+        </div>
+        <input type="text" name="Input Name"> <span id="name"></span>
+        <br>
+        <br> Description:
+        <br>
+        <div class="pointer">
+            <div class="triangle"></div>
+            <div class="box">
+                <p>Then Here!</p>
+            </div>
+        </div>
+        <input type="text" name="Input Description"> <span id="desc"></span>
+    </form>
+    <br>
+    <div class="shopButton">
+        <button id="add_shopping_list_item_button" onclick="add_to_shopping_list()">Add to Shopping List</button>
+    </div>
+</div>
+
+<div class="listContainer">
+  <div class ="title">
+    <h1> Current List:</h1>
+  </div>
+
+<div>
+
+
+
+
+
+
+
+<script type="text/javascript"  src="js/shopping_list.js"></script>
+<script type="text/javascript"  src="js/shopping_list_item.js"></script>
+
+</body>
+</html>

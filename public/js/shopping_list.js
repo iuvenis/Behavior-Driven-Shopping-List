@@ -19,12 +19,12 @@ var ShoppingList = function(items) {
   };
   this.render = function() {
     /*jshint multistr: true*/
-    var some_html_output = '<ul> \
+    var html_output = '<ul> \
                               <li class="completed_false"> \
-                                <span>Burritos</span> \
+                                <span>Pizza</span> \
                                 <span>Pizza is in the oven, all is right with the world</span> \
                               </li> \
                             <ul>';
-    return some_html_output;
+    return html_output;
   };
 };
