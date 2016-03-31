@@ -14,11 +14,11 @@
     content.innerHTML = shoppingList.render();
   };
 
-  var changeCheckedStatus = function(index, checkbox) {
+  var changeCheckedStatus = function(idx, checkbox) {
     if (checkbox.checked) {
-      shoppingList.items[index].check();
+      shoppingList.items[idx].check();
     } else {
-      shoppingList.items[index].uncheck();
+      shoppingList.items[idx].uncheck();
     }
     content.innerHTML = shoppingList.render();
   };
@@ -30,12 +30,12 @@
 
   content.addEventListener('click', function(event) {
     var listItems = event.target.parentNode.parentNode;
-    var index = Array.prototype.indexOf.call(listItems.parentNode.childNodes, listItems);
-    if (event.target.classList.contains('checkable')) {
-      changeCheckedStatus(index, event.target);
+    var idx = Array.prototype.indexOf.call(listItems.parentNode.childNodes, listItems);
+    if (event.target.classList.contains('checkMark')) {
+      changeCheckedStatus(idx, event.target);
     }
     if (event.target.classList.contains('removeButton')) {
-      shoppingList.removeItem(shoppingList.items[index]);
+      shoppingList.removeItem(shoppingList.items[idx]);
       content.innerHTML = shoppingList.render();
     }
   });
