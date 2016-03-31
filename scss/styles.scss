@@ -38,12 +38,11 @@ body{
   h1,h2,h3,h4,h5,h6{
   text-align: left;
   }
-
 }
 
 //Header
 header{
-  padding: 30px;
+  padding: 25px;
   background-color: $headerbgcolor;
   box-shadow: 2px 2px 1px rgba(0,0,0, 0.1);
     @media screen and (max-width:600px){
@@ -65,25 +64,32 @@ header{
 .inputContainer{
   width: 50%;
   margin: 0 auto;
-  background-color: rgba(255,255,255, 0.4);
+  background-color: rgba(255,255,255, 0.3);
   border-radius: 10px;
-  padding: 15px 0 15px 0;
+  padding: 20px 0 20px 0;
   outline: none;
-
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 20px;
   form{
-    width: 20%;
-    margin: 0 auto;
+    order: 1;
     outline: none;
+    input[type="text"] {
+          width: 98%;
+    }
       @media screen and (max-width:600px){
-        margin-left: 25%;
         input[type="text"] {
-          width: 200%;
-
+          width: 120%;
         }
     }
   }
+  // Container For Button
   .shopButton{
-    margin-top: 8px;
+    order: 2;
+    flex: 0 0 100%;
+    margin-top: 12px;
     display: flex;
     flex-flow:row wrap;
     justify-content: center;
@@ -120,9 +126,9 @@ header{
   }
 }
 
-// Moving Pointe
-.pointer{
-  margin-left: 130px;
+// Moving Pointers
+.pointer1{
+  margin-left: 132px;
   display: flex;
   width: 80px;
   transition:3s;
@@ -132,7 +138,6 @@ header{
     @media screen and (max-width:700px){
       display: none;
     }
-
   .triangle {
     height: 0;
     width: 0;
@@ -140,6 +145,9 @@ header{
     border-right: 10px solid $pointercolor;
     border-bottom: 10px solid transparent;
     border-top: 10px solid transparent;
+    @media screen and (max-width:700px){
+      display: none;
+    }
   }
   .box{
     width: 60px;
@@ -148,12 +156,61 @@ header{
     font-size: 11px;
     top: 4px;
     box-shadow: 2px 2px 1px rgba(0,0,0, 0.1);
+    @media screen and (max-width:700px){
+      display: none;
+    }
   }
   p {
     left: 4px;
     top: 5px;
     position: relative;
     color: $textcolor;
+    @media screen and (max-width:700px){
+      display: none;
+    }
+  }
+}
+.pointer2{
+  margin-left: 132px;
+  display: flex;
+  width: 80px;
+  transition:3s;
+  position:absolute;
+  animation: bounce 3s linear infinite alternate;
+    //Hide Pointer on small screens
+    @media screen and (max-width:700px){
+      display: none;
+    }
+  .triangle {
+    height: 0;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid $pointercolor;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    @media screen and (max-width:700px){
+      display: none;
+    }
+  }
+  .box{
+    width: 60px;
+    height: 20px;
+    background-color: $pointercolor;
+    font-size: 11px;
+    top: 4px;
+    box-shadow: 2px 2px 1px rgba(0,0,0, 0.1);
+    @media screen and (max-width:700px){
+      display: none;
+    }
+  }
+  p {
+    left: 4px;
+    top: 5px;
+    position: relative;
+    color: $textcolor;
+    @media screen and (max-width:700px){
+      display: none;
+    }
   }
   @keyframes bounce {
     0% {
@@ -169,22 +226,23 @@ header{
     }
   }
 }
+
 //Item Container
 .listContainer{
-  transform: translateY(35%);
   position: relative;
+  transform: scale;
   width: 50%;
   margin: 0 auto;
-  background-color: rgba(255,255,255, 0.4);
+  background-color: rgba(255,255,255, 0.3);
   border-radius: 10px;
   padding: 15px 0 15px 0;
+  padding-bottom: 1.5%;
 
   .title{
-
-    width: 85%;
-    margin-left: 15px;
+    max-width: 95%;
+    margin-left: 20px;
     text-align: left;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $textcolor;
   }
 
   h1{
@@ -199,3 +257,79 @@ header{
       width: 100%;
     }
 };
+
+.itemHolder{
+  transform: scale (1);
+  margin-top: 1%;
+  margin-left: 2.5%;
+  display: flex;
+  flex-flow:row wrap;
+  max-width: 95%;
+}
+
+
+.checkMark{
+  margin-top: 1.2%;
+}
+
+.nameClass{
+font-size: 20px;
+flex: 1 1 79%;
+order: 1;
+}
+
+.border{
+  padding-top: 1.25%;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin-left: 2%;
+  max-width: 95%;
+
+}
+
+.descriptionClass{
+  order: 3;
+  flex: 1 1 auto;
+  margin-top:-5px;
+  margin-left: 4%;
+      @media screen and (max-width:955px){
+      order: 2;
+
+    }
+      @media screen and (max-width:600px){
+      order: 3;
+    }
+        @media screen and (max-width:463px){
+      order: 2;
+    }
+}
+
+.removeButton{
+    order: 2;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 5px;
+    font-family: roboto;
+    color: #ffffff;
+    font-size: 12px;
+    background: #77B6FF;
+    padding: 8px 11px 8px 11px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+  .removeButton:hover{
+    background: #8cc2ff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+    @media screen and (max-width:955px){
+      order: 3;
+
+    }
+        @media screen and (max-width:600px){
+      order: 2;
+    }
+        @media screen and (max-width:463px){
+      order: 3;
+    }
+

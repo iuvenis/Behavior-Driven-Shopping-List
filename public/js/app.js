@@ -1,17 +1,42 @@
-var sl = ShoppingList;
-(function contentChange() {
-  var rendered = sl.render();
-  document.getElementById('content').innerHTML = rendered;
-}
-)();
+(function() {
+  var shoppingList = new ShoppingList();
+  var html_output = shoppingList.render();
+  var content = document.querySelector('#content');
+  content.innerHTML = html_output;
 
-var add_to_shopping_list = function() {
-  var new_shopping_list_item = ShoppingListItem(title, description);
-};
+  var addToShoppingList = function() {
+    var name = document.querySelector('#name');
+    var description = document.querySelector('#description');
+    var newShoppingListItem = new ShoppingListItem(name.value, description.value);
+    shoppingList.addItem(newShoppingListItem);
+    name.value = '';
+    description.value = '';
+    content.innerHTML = shoppingList.render();
+  };
 
-// var removeItemButtonClicked = function() {
-//   function ShoppingListItenClicked() {
-//   shoppingListItem.removeitem();
-// }
-// };
+  var changeCheckedStatus = function(index, checkbox) {
+    if (checkbox.checked) {
+      shoppingList.items[index].check();
+    } else {
+      shoppingList.items[index].uncheck();
+    }
+    content.innerHTML = shoppingList.render();
+  };
 
+  var addToShoppingListButton = document.querySelector('#addToShoppingListButton');
+  addToShoppingListButton.addEventListener('click', function() {
+    addToShoppingList();
+  });
+
+  content.addEventListener('click', function(event) {
+    var listItems = event.target.parentNode.parentNode;
+    var index = Array.prototype.indexOf.call(listItems.parentNode.childNodes, listItems);
+    if (event.target.classList.contains('checkable')) {
+      changeCheckedStatus(index, event.target);
+    }
+    if (event.target.classList.contains('removeButton')) {
+      shoppingList.removeItem(shoppingList.items[index]);
+      content.innerHTML = shoppingList.render();
+    }
+  });
+})();
