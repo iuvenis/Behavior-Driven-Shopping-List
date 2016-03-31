@@ -40,3 +40,24 @@
     }
   });
 })();
+
+//Jquery for Arrow Showing and Hiding
+
+$(function() {
+  $('.pointer1').show();
+  $('#name').focusin(function() {
+    $('.pointer1').hide();
+  }).focusout(function () {
+    $('.pointer1').show();
+  });
+});
+
+$(function() {
+  $('.pointer2').show();
+  $('#description').focusin(function() {
+    $('.pointer2').hide();
+  }).focusout(function () {
+    $('.pointer2').show();
+  });
+});
+
