@@ -1,17 +1,4 @@
-# Behavior Driven Shopping List
-
-Fork and clone this project.
-Goal: Create a working, single page app.
-
-This project has 3 parts.
-
-1. The Shopping List BDD tests
-2. Building the Shopping List classes to make tests pass
-3. Rendering a shopping list to the browser
-
-use http-server to test and run your app
-
-----
+![screenshot](https://cloud.githubusercontent.com/assets/13547790/18544800/33432c8c-7aeb-11e6-8002-c1d851e9c06d.png)
 
 ## 1. The Shopping List BDD tests
 
